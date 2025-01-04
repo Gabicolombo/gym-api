@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import sequelize from './connection/database';
 import userRoutes from './routes/user';
 import exerciseRoutes from './routes/exercise';
+import workoutRoutes from './routes/workout';
 
 dotenv.config({ path: './src/config/dev.env' });
 const app = express();
@@ -15,6 +16,7 @@ app.use(cookieParser());
 
 app.use('/api', userRoutes);
 app.use('/api', exerciseRoutes);
+app.use('/api', workoutRoutes);
 
 
 app.listen(port, async() => {
