@@ -28,6 +28,6 @@ Exercise.init({
     allowNull: false,
     unique: true
   }
-}, { sequelize, tableName: 'exercises', timestamps: true });
+}, { sequelize, tableName: 'exercises', timestamps: false });
 
 export default Exercise;
