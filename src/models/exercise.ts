@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../connection/database';
+import WorkoutExercise from './workoutExercise';
 
 class Exercise extends Model {
   public id!: number;
@@ -29,5 +30,13 @@ Exercise.init({
     unique: true
   }
 }, { sequelize, tableName: 'exercises', timestamps: false });
+
+Exercise.hasMany(WorkoutExercise, {
+  foreignKey: 'exerciseId'
+});
+
+WorkoutExercise.belongsTo(Exercise, {
+  foreignKey: 'exerciseId',
+});
 
 export default Exercise;
